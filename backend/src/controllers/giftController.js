@@ -1,6 +1,7 @@
 const connection = require('../database/connection');
 const Crypto = require('crypto');
-
+const axios = require('axios');
+const atob = require('atob');
 module.exports = {
 
 
@@ -29,11 +30,14 @@ module.exports = {
               .slice(0, size)
         }
         var hash = randomString(16);
+        
         await connection('cards').insert({
             cpf,
             value,
-            hash
+            hash,
         });
+
+        
         return res.status(201).send("Card created.");
     }
 }
