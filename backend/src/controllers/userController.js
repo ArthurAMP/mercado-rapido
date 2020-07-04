@@ -35,5 +35,18 @@ module.exports = {
             .select('*');
 
         return res.json(listCards);
+    },
+    async balance(req, res) {
+        
+        const {
+            cpf
+        } = req.body;
+
+        const value = await connection('users')
+            .where('cpf', cpf)
+            .select('saldo')
+            .first();
+
+        return res.json(value);
     }
 }

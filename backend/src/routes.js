@@ -10,6 +10,7 @@ routes.post('/cards', giftController.create);
 
 routes.post('/users', userController.create);
 routes.get('/users', userController.list);
+routes.post('/users/balance', userController.balance);
 
 routes.post('/cep', brapiController.location);
 
