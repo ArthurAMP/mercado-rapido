@@ -22,8 +22,8 @@ module.exports = {
                 cpf
             });
 
-
             return res.status(200).send({message: "User created!"});
+            
         } catch(err) {
             return res.status(401).send({message: "wtf deu errado"});
         }

@@ -1,9 +1,8 @@
 const connection = require('../database/connection');
 const Crypto = require('crypto');
-const axios = require('axios');
-const atob = require('atob');
-module.exports = {
+const { change } = require('./userController')
 
+module.exports = {
 
     async list(req, res) {
 
@@ -23,6 +22,7 @@ module.exports = {
             cpf,
             value,
         } = req.body;
+
         function randomString(size) {  
             return Crypto
               .randomBytes(size)
@@ -50,14 +50,13 @@ module.exports = {
             .where("hash", hash)
             .select('value')
             .first();
-        await axios({
-            method: 'put',
-            url: 'http://localhost:3000/users/balance',
-            data: {"cpf": cpf, "value": getCard.value}
-        });
+
+        change({ data: {"cpf": cpf, "value": getCard.value} });
+
         const delCard = await connection('cards')
             .where("hash", hash)
             .del();
+
         return res.status(201).send("Card used.");
     }
 }

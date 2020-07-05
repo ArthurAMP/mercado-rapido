@@ -6,14 +6,15 @@ module.exports = {
 
     async search(req, res) {
 
-        const { query } = req.body;
+        const { 
+            query = "",
+            offset = 0
+     } = req.body;
         
         const productsList = await axios
-            .get(`https://api.mercadolibre.com/sites/MLB/search?q=${query}&limit=5`)
+            .get(`https://api.mercadolibre.com/sites/MLB/search?q=${query}&limit=5&offset=${offset}`);
 
         const data = productsList.data.results;
-
-        console.log(data.length);
 
         return res.send(data);
     }
