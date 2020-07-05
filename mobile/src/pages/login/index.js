@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom'
 import { View, Image, Text, TouchableOpacity, TextInput, AlertIOS } from 'react-native';
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native'
 
 import logo from '../../assets/logo-mercado-livre-rapido.png';
 
@@ -26,6 +27,10 @@ export default function Login() {
       .catch(error => {
         AlertIOS.alert('Authentication Failed');
       });
+    }
+    const navigation = useNavigation();
+    function navigateToMain() {
+        navigation.navigate('Main');
     }
 
 
@@ -61,7 +66,7 @@ export default function Login() {
                 />
             </View>
 
-            <TouchableOpacity onPress={authenticate}>
+            <TouchableOpacity onPress={authenticate, navigateToMain}>
                 <Text style={styles.button}>Login</Text>
             </TouchableOpacity>
 
