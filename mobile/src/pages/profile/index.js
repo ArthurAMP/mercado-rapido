@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import api from '../../services/api';
 import { View, Text, Image, AsyncStorage } from 'react-native';
 import styles from './styles';
-
+import { useNavigation } from '@react-navigation/native'
 import userImg from '../../assets/foto-usuario.png'
 import carteiraImg from '../../assets/carteira-usuario.png'
 import addGift from '../../assets/btn-add-saldo.png'
@@ -15,13 +15,16 @@ import carrinho from '../../assets/carrinho.png'
 export default function Profile() {
 
     const [balance, setBalance] = useState();
-
+    var navigation = useNavigation();
     async function loadBalance() {
         const telefone = await AsyncStorage.getItem('telefone');
         const response = await api.post('users/balance', {"telefone": telefone});
         const dinheiro = response.data["saldo"];
 
         setBalance(`R$ ${dinheiro}`);
+    }
+    function navigateToMain() {
+        navigation.navigate('Main');
     }
 
     useEffect(() => {
@@ -30,9 +33,13 @@ export default function Profile() {
 
     return (
         <View style={styles.container}>
-            
+
             <View style={styles.navbar}>
-                <Image source={logoImg} style={{height: 30, width:40, marginTop: 9}}></Image>
+                <View>
+                    <TouchableOpacity activeOpacity = {.5} onPress={navigateToMain}>
+                    <Image source={logoImg} style={{height: 30, width:40, marginTop: 9}}></Image>
+                    </TouchableOpacity>
+                </View> 
                 <TextInput style={styles.search} placeholder="Estou Buscando"></TextInput>
                 <Image source={carrinho} style={{height: 30, width:35, marginTop: 9}}></Image>
             </View>
