@@ -28,7 +28,7 @@ export default StyleSheet.create({
         alignItems: 'flex-start',
         marginHorizontal: 20,
         marginBottom: 20,
-        marginTop: 100,
+        marginTop: 150,
         paddingTop: 15,
         paddingBottom: 45,
         borderRadius: 12,
