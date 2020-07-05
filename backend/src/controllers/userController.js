@@ -1,9 +1,5 @@
 const connection = require('../database/connection.js');
-<<<<<<< HEAD
-const { list } = require('./giftController.js');
 const knex = require('knex');
-=======
->>>>>>> create search engine
 
 module.exports = {
 
@@ -42,12 +38,12 @@ module.exports = {
 
         console.log(page);
 
-        const listCards = await connection('users')
+        const listUsers = await connection('users')
             .limit(20)
             .offset((page - 1) * 20)
             .select('*');
 
-        return res.json(listCards);
+        return res.json(listUsers);
     },
     async balance(req, res) {
         
