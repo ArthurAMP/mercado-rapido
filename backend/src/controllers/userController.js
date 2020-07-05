@@ -1,6 +1,6 @@
 const connection = require('../database/connection.js');
 const { list } = require('./giftController.js');
-
+const knex = require('knex');
 
 module.exports = {
 
@@ -48,5 +48,21 @@ module.exports = {
             .first();
 
         return res.json(value);
+    },
+
+    async change(req, res) {
+        
+        const {
+            cpf,
+            value
+        } = req.body;
+
+        const user = await connection('users')
+            .where('cpf', cpf)
+            .select('*')
+            .increment('saldo', value);
+            
+        
+        return res.status(200).send('success!');
     }
 }
