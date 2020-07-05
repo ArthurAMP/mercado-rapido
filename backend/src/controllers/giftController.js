@@ -39,5 +39,25 @@ module.exports = {
 
         
         return res.status(201).send("Card created.");
+    },
+    async delete(req, res) {
+        const {
+            hash,
+            cpf
+        } = req.body;
+        
+        const getCard = await connection('cards')
+            .where("hash", hash)
+            .select('value')
+            .first();
+        await axios({
+            method: 'put',
+            url: 'http://localhost:3000/users/balance',
+            data: {"cpf": cpf, "value": getCard.value}
+        });
+        const delCard = await connection('cards')
+            .where("hash", hash)
+            .del();
+        return res.status(201).send("Card used.");
     }
 }
