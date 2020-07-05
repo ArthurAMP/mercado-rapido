@@ -1,6 +1,9 @@
 const connection = require('../database/connection.js');
+<<<<<<< HEAD
 const { list } = require('./giftController.js');
 const knex = require('knex');
+=======
+>>>>>>> create search engine
 
 module.exports = {
 
@@ -8,11 +11,21 @@ module.exports = {
 
         const {telefone, cpf} = req.body;
         
+        const findUser = await 
+            connection('users')
+            .where('cpf', cpf)
+            .select('*')
+            .first();
+            
+        if(findUser) return res.status(400).send({message: "User already exists"});
+
+
         try {
             await connection('users').insert({
                 telefone,
                 cpf
             });
+
 
             return res.status(200).send({message: "User created!"});
         } catch(err) {
