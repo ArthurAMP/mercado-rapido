@@ -19,13 +19,9 @@ export default function Home() {
         const num = await AsyncStorage.getItem('telefone');
         console.log(num);
 
-        if(num) {
-            navigateToProfile();
-        }
-        else
-        {
-            navigateToLogin();
-        }
+
+        navigateToLogin();
+        
     }
 
     return (

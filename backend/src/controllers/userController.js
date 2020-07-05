@@ -48,11 +48,11 @@ module.exports = {
     async balance(req, res) {
         
         const {
-            cpf
+            telefone
         } = req.body;
 
         const value = await connection('users')
-            .where('cpf', cpf)
+            .where('telefone', telefone)
             .select('saldo')
             .first();
 
@@ -62,12 +62,12 @@ module.exports = {
     async change(req, res) {
         
         const {
-            cpf,
+            telefone,
             value
         } = req.body;
 
         const user = await connection('users')
-            .where('cpf', cpf)
+            .where('telefone', telefone)
             .select('*')
             .increment('saldo', value);
             

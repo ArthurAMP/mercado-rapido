@@ -57,6 +57,6 @@ export default StyleSheet.create({
     giftcardsText: {
         fontSize: 13,
         marginLeft: 15,
-        marginTop: 10
+        marginTop: 10,
     }
 })

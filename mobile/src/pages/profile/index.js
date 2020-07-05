@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import api from '../../services/api';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, AsyncStorage } from 'react-native';
 import styles from './styles';
 
 import userImg from '../../assets/foto-usuario.png'
@@ -11,6 +11,24 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 export default function Profile() {
+
+    const [balance, setBalance] = useState();
+
+    async function loadBalance() {
+        const telefone = await AsyncStorage.getItem('telefone');
+        const response = await api.post('users/balance', {"telefone": telefone});
+        const dinheiro = response.data["saldo"];
+
+        // const decimal = dinheiro.substr(0, dinheiro.length - 2)
+
+
+        setBalance(`R$ ${dinheiro}`);
+    }
+
+    useEffect(() => {
+        loadBalance();
+    }, []);
+
     return (
         <View style={styles.container}>
             
@@ -23,7 +41,7 @@ export default function Profile() {
                     </Text>
                     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                         <Image source={carteiraImg} style={styles.carteira}></Image>
-                        <Text style={styles.balanceValue}> R$ 400,00</Text>
+                        <Text style={styles.balanceValue} data={balance}>{balance}</Text>
                     </View>
                     
                 </View>
