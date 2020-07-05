@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import harabara from './../../assets/fonts/Harabara Mais Demo.otf';
 
 export default StyleSheet.create({
     container: {
@@ -9,19 +8,24 @@ export default StyleSheet.create({
         backgroundColor: '#f5ff61',
     },
     logo: {
-        height: 200,
-        width: 178,
+        height: 140,
+        width: 198,
     },
     button: {
         color: '#f4f4f4',
         backgroundColor: '#1f35ff',
         paddingVertical: 15,
         paddingHorizontal: 100,
-        marginTop: 40,
+        marginTop: 80,
         borderRadius: 12,
         fontSize: 18,
         fontFamily: 'Roboto',
         width: 'auto',
+    },
+    brand: {
+        fontSize: 30,
+        color: '#0000ba',
+        fontWeight: 'bold',
     }
 });
 
