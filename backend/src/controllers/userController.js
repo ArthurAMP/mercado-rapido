@@ -19,7 +19,6 @@ module.exports = {
         try {
             await connection('users').insert({
                 telefone,
-                cpf
             });
 
             return res.status(200).send({message: "User created!"});

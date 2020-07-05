@@ -7,7 +7,9 @@ import userImg from '../../assets/foto-usuario.png'
 import carteiraImg from '../../assets/carteira-usuario.png'
 import addGift from '../../assets/btn-add-saldo.png'
 import giftcardImg from '../../assets/giftcard-saldo.png'
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
+import logoImg from '../../assets/logo.jpg'
+import carrinho from '../../assets/carrinho.png'
 
 
 export default function Profile() {
@@ -19,9 +21,6 @@ export default function Profile() {
         const response = await api.post('users/balance', {"telefone": telefone});
         const dinheiro = response.data["saldo"];
 
-        // const decimal = dinheiro.substr(0, dinheiro.length - 2)
-
-
         setBalance(`R$ ${dinheiro}`);
     }
 
@@ -32,6 +31,13 @@ export default function Profile() {
     return (
         <View style={styles.container}>
             
+            <View style={styles.navbar}>
+                <Image source={logoImg} style={{height: 30, width:40, marginTop: 9}}></Image>
+                <TextInput style={styles.search} placeholder="Estou Buscando"></TextInput>
+                <Image source={carrinho} style={{height: 30, width:35, marginTop: 9}}></Image>
+            </View>
+
+
             <View style={styles.user}>
                 <Image source={userImg} style={styles.userImg}></Image>
                 <View style={styles.balance}>

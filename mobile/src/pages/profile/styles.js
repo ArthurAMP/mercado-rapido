@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        backgroundColor: '#9a9a9a',
+        backgroundColor: '#dbdbdb',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -11,7 +11,6 @@ export default StyleSheet.create({
     user: {
         width: 340,
         height: 700,
-        marginTop: 100,
         backgroundColor: '#ffffff',
         marginHorizontal: 20,
         alignItems: 'center',
@@ -58,5 +57,23 @@ export default StyleSheet.create({
         fontSize: 13,
         marginLeft: 15,
         marginTop: 10,
+    },
+    navbar: {
+        backgroundColor: '#f5ff61',
+        width: 360,
+        paddingTop: 65,
+        paddingBottom: 5,
+        paddingHorizontal: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    search: {
+        backgroundColor: '#ffffff',
+        borderRadius: 12,
+        paddingHorizontal: 10,
+        color: '#747474',
+        height: 45,
+        width: 170,
+        textAlign: 'center'
     }
 })
