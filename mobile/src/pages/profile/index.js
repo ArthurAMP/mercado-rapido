@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import api from '../../services/api';
 import { View, Text, Image, AsyncStorage } from 'react-native';
+import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native'
+import api from '../../services/api';
+
 import userImg from '../../assets/foto-usuario.png'
 import carteiraImg from '../../assets/carteira-usuario.png'
 import addGift from '../../assets/btn-add-saldo.png'
 import giftcardImg from '../../assets/giftcard-saldo.png'
-import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
 import logo from '../../assets/logo-mercado-rapido-maior.png';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
@@ -15,6 +17,7 @@ export default function Profile() {
 
     const [balance, setBalance] = useState();
     var navigation = useNavigation();
+    
     async function loadBalance() {
         const telefone = await AsyncStorage.getItem('telefone');
         const response = await api.post('users/balance', {"telefone": telefone});
@@ -24,6 +27,10 @@ export default function Profile() {
     }
     function navigateToMain() {
         navigation.navigate('Main');
+    }
+
+    function navigateToScanner() {
+        navigation.navigate('Scanner');
     }
 
     useEffect(() => {
@@ -68,7 +75,7 @@ export default function Profile() {
                 <View style={styles.giftcards}>
                     <Text style={styles.giftcardsText}>SEUS GIFT CARDS</Text>
                     <View style={{flexDirection:'row', justifyContent: 'space-between'}}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={navigateToScanner}>
                             <Image source={addGift} style={{height: 50, width: 50, marginLeft: 40, marginTop: 35}} />
                             <Text style={{fontSize:10, marginLeft: 20, color: '#000061'}}>Adicionar Gift Card</Text>
                         </TouchableOpacity>

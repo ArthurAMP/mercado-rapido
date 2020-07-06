@@ -13,9 +13,22 @@ import logo from '../../assets/logo-mercado-rapido-maior.png';
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { HeaderBackground } from '@react-navigation/stack';
+
+import {useNavigation} from '@react-navigation/native'
+
 Icon.loadFont();
     export default function Main(){
         
+        const navigation = useNavigation();
+
+        function navigateToProfile() {
+            navigation.navigate('Profile');
+        }
+
+        function navigateToProduct() {
+            navigation.navigate('Product');
+        }
+
         return(
             <View style={styles.div}>
                 <View style={styles.container}>
@@ -39,13 +52,19 @@ Icon.loadFont();
                         <Image source={btncomputadores} style={styles.imgicon} />
                         <Image source={btnautomitivos} style={styles.imgicon} />
                         <Image source={btncalcados} style={styles.imgicon} />
-                        <Image source={btnperfilusuário} style={styles.imgicon} />
+                        <TouchableOpacity onPress={navigateToProfile}><Image source={btnperfilusuário} style={styles.imgicon} /></TouchableOpacity>
                     </View>
+
+
+
                     <View style={styles.offers}>
                         <View style={styles.offersheader}><Text style={styles.ofertas}>Ofertas</Text></View>
-                        <View style={styles.product}>
+                        
+
+                        <TouchableOpacity style={styles.product} onPress={navigateToProduct}>
                             <Image source={cel1} style={styles.cel} />
-                        </View>
+                        </TouchableOpacity>
+
                         <View style={styles.product}>
                             <Image source={cel2} style={styles.cel} />
                         </View><View style={styles.product}>

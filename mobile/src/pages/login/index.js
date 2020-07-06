@@ -13,8 +13,8 @@ export default function Login() {
 
     const navigation = useNavigation();
 
-    function navigateToProfile() {
-        navigation.navigate('Profile');
+    function navigateToMain() {
+        navigation.navigate('Main');
     }
 
     async function authenticate() {
@@ -35,7 +35,7 @@ export default function Login() {
 
                 const num = await AsyncStorage.getItem('telefone');
                 console.log(`valor guardado: ${num}`);
-                navigateToProfile();
+                navigateToMain();
             }
             else {
                 console.log("Erro na autenticaca11o");

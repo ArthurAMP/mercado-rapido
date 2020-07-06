@@ -3,11 +3,8 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         backgroundColor: '#dbdbdb',
-        flex: 1,
-
     },
     navcontainer: {
-        flex: 1,
         justifyContent: 'space-around',
         alignItems: 'center',
         flexDirection: 'row', 
@@ -15,7 +12,6 @@ export default StyleSheet.create({
     },
     cep:{
         flexDirection: 'row',
-        flex: 0.4,
         backgroundColor: '#f5ff61',
     },
     ceptext:{
@@ -47,7 +43,7 @@ export default StyleSheet.create({
         textAlign: 'center'
     },
     user: {
-        width: 340,
+        width: 320,
         height: 700,
         backgroundColor: '#ffffff',
         marginHorizontal: 20,

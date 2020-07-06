@@ -10,6 +10,7 @@ import Home from './pages/home';
 import Profile from './pages/profile'
 import Main from './pages/main';
 import Scanner from './pages/scanner';
+import Product from './pages/product';
 
 export default function Routes() {
     return (
@@ -21,7 +22,7 @@ export default function Routes() {
                 <AppStack.Screen name="Profile" component={Profile} />
                 <AppStack.Screen name="Main" component={Main} />
                 <AppStack.Screen name="Scanner" component={Scanner} />
-
+                <AppStack.Screen name="Product" component={Product} />
 
             </AppStack.Navigator>
         </NavigationContainer>
