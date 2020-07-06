@@ -1,4 +1,4 @@
-# mercado-facil
+# mercado-rapido
 
 ## Requisitos
 > - Visual Studio Code <br>
