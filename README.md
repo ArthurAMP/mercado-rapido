@@ -22,7 +22,7 @@ cd mercado-facil/backend
 npm start
 ```
 ## Iniciando a aplicação mobile
-> Troque "YOUR_LOCAL_IP" pelo seu ip local no arquivo mercado-facil/mobile/src/services/api.js
+> Troque "YOUR_LOCAL_IP" pelo seu ip local no arquivo mercado-facil/mobile/src/services/api.js <br>
 > Em um terminal bash, execute:
 ```
 cd mercado-facil/mobile
