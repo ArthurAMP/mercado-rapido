@@ -8,9 +8,8 @@ import carteiraImg from '../../assets/carteira-usuario.png'
 import addGift from '../../assets/btn-add-saldo.png'
 import giftcardImg from '../../assets/giftcard-saldo.png'
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
-import logoImg from '../../assets/logo.jpg'
-import carrinho from '../../assets/carrinho.png'
-
+import logo from '../../assets/logo-mercado-rapido-maior.png';
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 export default function Profile() {
 
@@ -33,16 +32,23 @@ export default function Profile() {
 
     return (
         <View style={styles.container}>
-
-            <View style={styles.navbar}>
-                <View>
+            <View style={styles.navcontainer}>
                     <TouchableOpacity activeOpacity = {.5} onPress={navigateToMain}>
-                    <Image source={logoImg} style={{height: 30, width:40, marginTop: 9}}></Image>
+                        <Image source={logo} style={styles.logo}></Image>
                     </TouchableOpacity>
-                </View> 
-                <TextInput style={styles.search} placeholder="Estou Buscando"></TextInput>
-                <Image source={carrinho} style={{height: 30, width:35, marginTop: 9}}></Image>
+                    <View style={styles.icon}>
+                        <Icon name="menu" size={35} color="#000061" style={styles.icon} />
+                    </View>
+                    <TextInput style={styles.search}>Estou buscando</TextInput>
+                    <View style={styles.icon}>
+                        <Icon name="local-grocery-store" size={35} color="#000061" style={styles.icon} />
+                    </View>
             </View>
+            <View style={styles.cep}>
+                <Icon name="location-on" size={18} color="#000061" style={styles.location} />
+                <Text style={styles.ceptext}>Informe o CEP</Text>
+            </View>
+            
 
 
             <View style={styles.user}>

@@ -40,7 +40,7 @@ export default StyleSheet.create({
         paddingHorizontal: 10,
         color: '#747474',
         height: 45,
-        width: 250,
+        width: 220,
         textAlign: 'center'
     },
     brand: {
