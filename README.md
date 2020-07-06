@@ -21,14 +21,12 @@ npm install
 cd mercado-facil/backend
 npm start
 ```
-<br>
 ## Iniciando a aplicação mobile
-> Em um outro terminal bash, execute:
+> Em um terminal bash, execute:
 ```
 cd mercado-facil/mobile
 npm start
 ```
-<br>
 ## Executando a aplicação mobile
 > Instale o aplicativo Expo no seu celular.
 > No aplicativo do Expo, leia o qr code em http://localhost:19002.
