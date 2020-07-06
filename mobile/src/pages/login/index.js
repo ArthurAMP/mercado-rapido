@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { View, Image, Text, TouchableOpacity, TextInput, AsyncStorage} from 'react-native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { useNavigation } from '@react-navigation/native'
-
+import api from '../../services/api'
 import styles from './styles'
 import logo from '../../assets/logo-mercado-livre-rapido.png';
 
@@ -16,7 +16,7 @@ export default function Login() {
     function navigateToMain() {
         navigation.navigate('Main');
     }
-
+    
     async function authenticate() {
 
         if(numero.length == 0) {
@@ -35,10 +35,11 @@ export default function Login() {
 
                 const num = await AsyncStorage.getItem('telefone');
                 console.log(`valor guardado: ${num}`);
+                await api.post('users', {'telefone': numero});
                 navigateToMain();
             }
             else {
-                console.log("Erro na autenticaca11o");
+                console.log("Erro na autenticação");
             }
 
         } catch (err) {

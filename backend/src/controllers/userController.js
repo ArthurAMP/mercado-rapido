@@ -5,11 +5,11 @@ module.exports = {
 
     async create(req, res) {
 
-        const {telefone, cpf} = req.body;
+        const {telefone} = req.body;
         
         const findUser = await 
             connection('users')
-            .where('cpf', cpf)
+            .where('telefone', telefone)
             .select('*')
             .first();
             
@@ -18,14 +18,13 @@ module.exports = {
 
         try {
             await connection('users').insert({
-                telefone,
-                cpf,
+                telefone
             });
 
             return res.status(200).send({message: "User created!"});
             
         } catch(err) {
-            return res.status(401).send({message: "wtf deu errado"});
+            return res.status(401).send({message: "Erro ao criar o user"});
         }
 
     },
