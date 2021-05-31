@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native'
 
 export default StyleSheet.create({
     container: {
-        backgroundColor: '#dbdbdb',
+        backgroundColor: '#c8c8c8',
         flex: 1,
     },
     navcontainer: {
